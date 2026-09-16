@@ -5,6 +5,7 @@
 ### Week 2 Runs
 
 | Model | Train Accuracy | Test Accuracy |
+|----|-------|----|
 | LR | 0.680 | 0.680 |
 | DT | 0.829 | 0.628 |
  
