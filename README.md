@@ -1,5 +1,17 @@
 # Baseline Predictive Pipeline -- ETAI
 
+20231645 - João Patrício
+
+### Week 2 Runs
+
+| Model | Train Accuracy | Test Accuracy |
+| LR | 0.680 | 0.680 |
+| DT | 0.829 | 0.628 |
+ 
+Decision tree is clearly overfitting. So far, Logistic Regression is the better option.
+
+## Intro
+
 This is the **starting point** for your semester project: a small but *complete* predictive pipeline -- every piece a real project needs (entry point, config, data loading, preprocessing, model, evaluation), just kept as simple as possible for now.
 
 The task: predict two-year recidivism using ProPublica's COMPAS
@@ -35,7 +47,7 @@ This table is updated after each practical class, so you can always see what cha
 
 | Week | Practical class focus | Added to the pipeline |
 |------|------------------------|------------------------|
-| 2 | Introduction & baseline pipeline | Initial version: project structure, a single naive train/test split (no cross-validation), minimal preprocessing (drop rows with missing values, one-hot encode categoricals), logistic regression baseline, a first (deliberately simple) fairness check comparing our model's and COMPAS's own false-positive rate by race, train-vs-test accuracy reporting (to start spotting overfitting), and each run's full report saved automatically to `results/` |
+| 2 | Setting up the Github repository. Initial runs with default Logistic Regression and Decision Tree. | Personalization of the README file. Some changes in the config.yaml file |
 
 ## Environment setup
 
