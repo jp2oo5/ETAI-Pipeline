@@ -2,14 +2,22 @@
 
 20231645 - João Patrício
 
-### Week 2 Runs
+## Runs
 
-| Model | Train Accuracy | Test Accuracy |
-|----|-------|----|
-| LR | 0.680 | 0.680 |
-| DT | 0.829 | 0.628 |
- 
+| Week | Model | Train Accuracy | Test Accuracy |
+|----|----|-------|----|
+| 2 | LR | 0.680 | 0.680 |
+| 2 | DT | 0.829 | 0.628 |
+| 3 | LR | 0.676 | 0.657 |
+| 3 | DT | 0.792 | 0.612 |
+
+### Week 2 
+
 Decision tree is clearly overfitting. So far, Logistic Regression is the better option.
+
+### Week 3
+
+We actually made the model worse? Decision Tree still overfitting
 
 ## Intro
 
