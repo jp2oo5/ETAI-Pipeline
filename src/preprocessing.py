@@ -151,15 +151,18 @@ def build_preprocessor(preprocessing_config: dict) -> ColumnTransformer:
     ])
 
 
-def split_train_test(X, y, extras, test_size: float, random_state: int):
+def split_dev_test(X, y, extras, test_size: float, random_state: int):
     """
-    Stratified split of X, y, and the extras frame (race/score_text, kept aside for the
-    fairness report) together, so all three stay row-aligned. This is the leak-safe
-    boundary line -- everything downstream (imputation, encoding, scaling, inside
-    build_preprocessor's ColumnTransformer) may only ever be fit on X_train, never on
-    X_test or the full dataset.
+    Sets the final test set aside (week 4 -- replaces week 2/3's `split_train_test`).
+
+    Stratified split of X, y and the extras frame (race/score_text, kept for the fairness
+    report) together, so all three stay row-aligned. Returns a *development* set and a
+    *locked test set*:
+      - development set: everything we're allowed to learn from and compare models on.
+        Cross-validation (src/evaluate.py) splits it again into train/validation folds.
+      - locked test set: never used to fit, tune, compare or choose anything. Its size and seed live in config.yaml's `test_set` section and are never changed after today.
     """
-    X_train, X_test, y_train, y_test, extras_train, extras_test = train_test_split(
+    X_dev, X_test, y_dev, y_test, extras_dev, extras_test = train_test_split(
         X, y, extras, test_size=test_size, random_state=random_state, stratify=y
     )
-    return X_train, X_test, y_train, y_test, extras_train, extras_test
+    return X_dev, X_test, y_dev, y_test, extras_dev, extras_test

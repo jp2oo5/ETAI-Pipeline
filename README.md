@@ -10,6 +10,11 @@
 | 2 | DT | 0.829 | 0.628 |
 | 3 | LR | 0.676 | 0.657 |
 | 3 | DT | 0.792 | 0.612 |
+| 4 | Dummy |  |  |
+| 4 | LR |  |  |
+| 4 | DT |  |  |
+| 4 | RF |  |  |
+
 
 ### Week 2 
 
@@ -17,7 +22,9 @@ Decision tree is clearly overfitting. So far, Logistic Regression is the better 
 
 ### Week 3
 
-We actually made the model worse? Decision Tree still overfitting
+We actually made the model worse with the preprocessing? Decision Tree still overfitting.
+
+### Week 4
 
 ## Intro
 
