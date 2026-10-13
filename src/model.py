@@ -6,7 +6,6 @@ from sklearn.dummy import DummyClassifier
 from sklearn.pipeline import Pipeline
 from src.preprocessing import build_preprocessor
 import yaml 
-from pathlib import Path
 
 _MODELS = {
     "logistic_regression": LogisticRegression,
@@ -15,16 +14,10 @@ _MODELS = {
     "dummy": DummyClassifier
 }
 
-PIPELINE_DIR = Path("C:/Users/joaoa/Desktop/JP/Universidade/Mestrado/Ano 1/S1/ETAI/ETAI-Pipeline")
-
-with open(PIPELINE_DIR / "config.yaml") as f:
-    config = yaml.safe_load(f)
-
-
-
 def build_model(model_config: dict):
+    """Builds the model named by `model_config["type"]` with `model_config["params"]`."""
     model_type = model_config["type"]
-    params = model_config.get("params", {})
+    params = model_config.get("params") or {}
 
     if model_type not in _MODELS:
         raise ValueError(f"Unknown model type: {model_type}. Options: {list(_MODELS)}")
@@ -32,9 +25,14 @@ def build_model(model_config: dict):
     return _MODELS[model_type](**params)
 
 
-def make_pipeline(model_config, preprocessing_config=None):
-    # Same as main.py: Pipeline([("prep", build_preprocessor(...)), ("model", build_model(...))])
+def build_pipeline(preprocessing_config: dict, model_config: dict) -> Pipeline:
+    """
+    The estimator that is cross-validated, tuned and refit: preprocessing and model as one
+    Pipeline, so every learned step is re-fit on the training part of each fold. Step names
+    address hyperparameters from outside (`model__max_depth`, `prep__numeric__impute__strategy`).
+    Any new learned step (e.g. feature selection) belongs here, between "prep" and "model".
+    """
     return Pipeline([
-        ("prep", build_preprocessor(preprocessing_config or config["preprocessing"])),
+        ("prep", build_preprocessor(preprocessing_config)),
         ("model", build_model(model_config)),
     ])

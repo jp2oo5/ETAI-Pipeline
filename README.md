@@ -10,10 +10,15 @@
 | 2 | DT | 0.829 | 0.628 |
 | 3 | LR | 0.676 | 0.657 |
 | 3 | DT | 0.792 | 0.612 |
-| 4 | Dummy |  |  |
-| 4 | LR |  |  |
-| 4 | DT |  |  |
-| 4 | RF |  |  |
+
+| Week | Model | Train Accuracy (mean) | Val Accuracy (mean) | OOF Accuracy|
+|----|----|-------|----|----|
+| 5 | Dummy | 0.549 | 0.549 | 0.55 |
+| 5 | LR | 0.675 | 0.672 | 0.67 |
+| 5 | DT | 0.695 | 0.610 | 0.619 |
+| 5 | DT (tuning) | 0.685 | 0.672 | 0.67 |
+| 5 | RF | 0.733 | 0.650 | 0.65 |
+| 5 | RF (tuning) | 0.733 | 0.650 | 0.68 |
 
 
 ### Week 2 
@@ -24,7 +29,13 @@ Decision tree is clearly overfitting. So far, Logistic Regression is the better 
 
 We actually made the model worse with the preprocessing? Decision Tree still overfitting.
 
-### Week 4
+### Week 5
+
+Every model above dummy's baseline.
+Tuning prevents overfitting in decision tree. 
+DT and LR improved from recent weeks
+RF added
+Tuning is positive.
 
 ## Intro
 
@@ -48,10 +59,12 @@ go on.
 ├── src/
 │   ├── data.py             # loading
 │   ├── preprocessing.py    # cleaning + train/test split
-│   ├── model.py             # model construction
+│   ├── model.py            # model construction
 │   ├── evaluate.py         # accuracy metrics + fairness check
-│   └── results.py          # saves each run's report to disk
+│   ├── results.py          # saves each run's report to disk
+|   └── tuning.py           # hyperparameter tuning with optuna
 ├── results/                # created automatically -- one file per run (not tracked in git)
+├── praticals/              # pratical classes notebooks 
 └── data/
     ├── compas_two_year_recidivism.csv
     └── README.md            # problem description + full data dictionary
@@ -64,6 +77,9 @@ This table is updated after each practical class, so you can always see what cha
 | Week | Practical class focus | Added to the pipeline |
 |------|------------------------|------------------------|
 | 2 | Setting up the Github repository. Initial runs with default Logistic Regression and Decision Tree. | Personalization of the README file. Some changes in the config.yaml file |
+| 3 | Preprocessing | First runs. Preprocessing. |
+| 4 | Cross Validation | Incomplete work |
+| 5 | Hyperparameter tuning | Bringing repository up to date. Results updated|
 
 ## Environment setup
 
