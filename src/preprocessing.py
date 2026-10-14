@@ -88,6 +88,14 @@ def add_missingness_indicators(df: pd.DataFrame, mnar_indicator_sources: list) -
     return out
 
 
+def add_engineered_features(df: pd.DataFrame) -> pd.DataFrame:
+    # EXAMPLE (Challenge 1). Fixed formulas only -- nothing is learned, so this is safe before the split.
+    out = df.copy()
+    out["all_priors"] = out["priors_count"]+out["juv_other_count"]+out["juv_misd_count"]+out["juv_fel_count"]
+    out["yearly_crimes"] = out ["all_priors"]/ out["age"]   # NaN stays NaN -> imputed later
+    return out
+
+
 def split_features_target(df: pd.DataFrame, data_config: dict, mnar_indicator_sources: list):
     """
     Returns (X, y, extras). `extras` holds the columns kept out of the features for auditing
