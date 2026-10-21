@@ -1,7 +1,8 @@
 """Model construction."""
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, BaggingClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, BaggingClassifier, GradientBoostingClassifier, HistGradientBoostingClassifier
+from sklearn.naive_bayes import GaussianNB
 from sklearn.random_projection import SparseRandomProjection
 from sklearn.dummy import DummyClassifier
 from sklearn.pipeline import Pipeline
@@ -40,7 +41,10 @@ _MODELS = {
     "random_forest": RandomForestClassifier,
     "dummy": DummyClassifier,
     "oblique_random_forest": oblique_random_forest,
-    "adaboost": adaboost
+    "adaboost": adaboost,
+    "gradient_boosting" : GradientBoostingClassifier,
+    "hist_gradient_boosting" : HistGradientBoostingClassifier,
+    "niave_bayes" : GaussianNB
 }
 
 
