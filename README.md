@@ -44,6 +44,9 @@ Tuning is positive.
 ORF overfits.
 Adaboost may be the best untuned model. 
 
+### Week 8
+
+
 
 ## Intro
 
@@ -89,5 +92,7 @@ This table is updated after each practical class, so you can always see what cha
 | 4 | Cross Validation | Incomplete work |
 | 5 | Hyperparameter tuning | Bringing repository up to date. Results updated|
 | 6 | Oblique Random Forests and Adaboost. | Added Oblique Random Forest and Adaboost. Added 2 new features.|
+| 7 | Boosting and Metrics | Added 3 boosting models to the pipeline. |
+| 8 | Feature Selection | Updated Metrics. |
 
 

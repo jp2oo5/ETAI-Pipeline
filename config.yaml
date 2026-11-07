@@ -13,7 +13,8 @@ cv:
   n_splits: 5
   shuffle: true
   random_state: 42
-  scoring: "accuracy"
+  metrics: ["accuracy", "balanced_accuracy", "precision", "recall", "f1", "fbeta_2", "roc_auc", "average_precision"]
+  selection_metric: "roc_auc" 
   n_jobs: 1                                         # -1 = all CPU cores
 
 diagnostics:
@@ -63,7 +64,8 @@ preprocessing:
 
 model:
   type: "oblique_random_forest"     
-  # dummy | logistic_regression | decision_tree | random_forest | adaboost | oblique_random_forest
+  # dummy | logistic_regression | decision_tree | random_forest | adaboost | 
+  # oblique_random_forest | naive_bayes | gradient_boosting | hist_gradient_boosting
   params:
   #  class_weight: balanced # For everyone except gradient_boosting and naive_bayes 
     random_state: 42      
@@ -117,3 +119,4 @@ tuning:
 
 output:
   results_dir: "results"
+  scoreboard: "results/runs.csv"

@@ -44,7 +44,7 @@ _MODELS = {
     "adaboost": adaboost,
     "gradient_boosting" : GradientBoostingClassifier,
     "hist_gradient_boosting" : HistGradientBoostingClassifier,
-    "niave_bayes" : GaussianNB
+    "naive_bayes" : GaussianNB
 }
 
 
