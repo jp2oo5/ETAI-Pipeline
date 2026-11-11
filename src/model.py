@@ -2,6 +2,7 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, BaggingClassifier, GradientBoostingClassifier, HistGradientBoostingClassifier
+from xgboost import XGBClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.random_projection import SparseRandomProjection
 from sklearn.dummy import DummyClassifier
@@ -44,7 +45,8 @@ _MODELS = {
     "adaboost": adaboost,
     "gradient_boosting" : GradientBoostingClassifier,
     "hist_gradient_boosting" : HistGradientBoostingClassifier,
-    "naive_bayes" : GaussianNB
+    "naive_bayes" : GaussianNB,
+    "xgboost": XGBClassifier
 }
 
 

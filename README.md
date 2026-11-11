@@ -22,6 +22,11 @@
 | 6 | Adaboost | 0.680 | 0.674 | 0.67 |
 | 6 | ORF| 0.781 | 0.645 | 0.65 |
 
+| Week | Model | Roc-Auc | Train Validation Gap | OOF Accuracy|
+|----|----|-------|----|----|
+| 9 | XGBoost | 0.682 | +0.139 | 0.64 |
+| 9 | XGBoost (tuning) | 0.725 | +0.009 | 0.68 |
+
 
 ### Week 2 
 
@@ -44,9 +49,9 @@ Tuning is positive.
 ORF overfits.
 Adaboost may be the best untuned model. 
 
-### Week 8
+### Week 9
 
-
+XGBoost tuned ties our best model in oof accuracy.
 
 ## Intro
 
@@ -94,5 +99,6 @@ This table is updated after each practical class, so you can always see what cha
 | 6 | Oblique Random Forests and Adaboost. | Added Oblique Random Forest and Adaboost. Added 2 new features.|
 | 7 | Boosting and Metrics | Added 3 boosting models to the pipeline. |
 | 8 | Feature Selection | Updated Metrics. |
+| 9 |  Beyond COMPAS | Added XGBoost |
 
 

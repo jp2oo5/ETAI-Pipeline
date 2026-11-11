@@ -34,7 +34,15 @@ def main():
     df_clean = drop_duplicate_rows(df_clean, config["diagnostics"].get("id_column"))
 
     mnar_sources = config["preprocessing"].get("mnar_indicator_sources", [])
-    X, y, extras = split_features_target(df_clean, config["data"], mnar_sources)
+
+    # Feature engineering (fixed formulas, no data learned)
+    df_features = add_engineered_features(df_clean)
+
+    X, y, extras = split_features_target(
+        df_features,
+        config["data"],
+        mnar_sources
+    )
 
     # From here on, every decision uses the development set only; the test set stays locked.
     X_dev, X_test, y_dev, y_test, extras_dev, extras_test = split_dev_test(
